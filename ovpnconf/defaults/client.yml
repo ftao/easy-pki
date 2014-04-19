@@ -1,0 +1,25 @@
+---
+
+name: client
+remotes:
+   - host: 127.0.0.1 
+     port: 1194
+     proto: udp
+   - host: 127.0.0.1 
+     port: 1194
+     proto: tcp
+
+
+pki_root: ./pki
+
+#if not defined , expand by name & pki_root
+#ca_file: ./pki/ca.crt
+#- ta_file: ./pki/ta.key
+#cert_file: ./pki/issued/client.crt
+#key_file: ./pki/private/client.key
+
+route_mode: 'all'  #smart, none
+
+format: 'ovpn'  #tunnelblick
+
+auth_user_pass: false

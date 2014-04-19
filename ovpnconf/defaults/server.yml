@@ -1,0 +1,21 @@
+---
+
+- name: server
+- port: 1194
+- proto: udp
+- ca_file: ./cred/ca.crt
+- dh_file: ./cred/dh1024.pem
+- ta_file: ./cred/ta.key
+
+- cert_file: ./cred/server.csr
+- key_file: ./cred/server.crt
+
+- network_subnet: 10.8.1.0 
+- network_mask: 255.255.255.0
+- network_dns:
+    - 10.8.1.1
+    - 8.8.8.8
+
+- use_radius: false
+
+- enable_management: true

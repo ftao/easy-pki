@@ -13,12 +13,19 @@ setup(
     description='A Simple Public-Key Infrastructure Manager',
     long_description=open('README.md').read(),
 
-    install_requires=['docopt'],
-    packages=['easypki'],
+    install_requires=[
+        'docopt',
+        'jinja2'
+    ],
+
+    packages=['easypki', 'ovpnconf'],
+
+    package_data={'ovpnconf': ['ovpnconf/templates/*', 'ovpnconf/defaults/*']},
 
     entry_points = {
         'console_scripts': [
             'easy-pki = easypki.cli:main',
+            'ovpnconf-gen = ovpnconf.gen:main',
         ]
     },
     classifiers = [

@@ -1,4 +1,6 @@
 easy-pki
 ========
 
-A Simple Public-Key Infrastructure Manager
+A OpenVPN Key Management Tool & Config Generator
+
+
