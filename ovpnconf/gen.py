@@ -19,6 +19,7 @@ import yaml
 here = os.path.dirname(__file__)
 client_defaults_file = os.path.join(here, 'defaults/client.yml')
 server_defaults_file = os.path.join(here, 'defaults/client.yml')
+client_template_file = os.path.join(here, 'templates/client.conf')
 
 def parse_cmdline_vars(cmdline_vars):
     return dict(var.split('=', 1) for var in cmdline_vars)
@@ -101,7 +102,7 @@ def main():
     expand_file_contents(context)
 
     env = jinja2.Environment(undefined=jinja2.StrictUndefined)
-    template_str = open('./templates/client.conf').read()
+    template_str = open(client_template_file).read()
     template = env.from_string(template_str)
     print template.render(context)
 
