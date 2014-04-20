@@ -20,6 +20,8 @@ here = os.path.dirname(__file__)
 client_defaults_file = os.path.join(here, 'defaults/client.yml')
 server_defaults_file = os.path.join(here, 'defaults/client.yml')
 client_template_file = os.path.join(here, 'templates/client.conf')
+smart_route_file = os.path.join(here, 'templates/smart_route.txt')
+
 
 def parse_cmdline_vars(cmdline_vars):
     return dict(var.split('=', 1) for var in cmdline_vars)
@@ -80,6 +82,10 @@ def expand_file_contents(context):
                     context[ftype + '_content'] = read_key(fp)
                 else:
                     context[ftype + '_content'] = read_cert(fp)
+
+    if context.get('route_mode') == 'smart':
+        with open(smart_route_file, 'r') as fp:
+            context['smart_route_content'] = fp.read()
 
 def main():
     args = docopt.docopt(__doc__)
