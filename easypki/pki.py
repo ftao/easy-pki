@@ -41,6 +41,10 @@ class EasyRSAPKI(object):
         subprocess.call([self.EASYRSA_BIN, "gen-req", filename, 'nopass'], env=env)
         subprocess.call([self.EASYRSA_BIN, "sign-req", type_, filename], env=env)
 
+    def gen_dh(self):
+        env = self.env.copy()
+        subprocess.call([self.EASYRSA_BIN, "gen-dh"], env=env)
+
 def get_pki(pki_dir, easyrsa_dir=None):
     if easyrsa_dir is None:
         easyrsa_dir = os.environ.get("EASYRSA", None)

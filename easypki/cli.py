@@ -4,6 +4,7 @@ easypki - Easy PKI Management Tool
 usage:
   easypki init-ca [<cname>] [options]
   easypki gen-key (server|client) <cname> [options]
+  easypki gen-dh  [options]
 
 options:
   --pki-dir=<PKI-DIR>          PKI Directory
@@ -27,6 +28,9 @@ def main():
         cname = args.get('<cname>')
         type_ = "server" if args.get('server') else "client"
         pki.gen_key(type_, cname)
+    elif args.get("gen-dh"):
+        pki.gen_dh()
+
 
 if __name__ == "__main__":
     main()
